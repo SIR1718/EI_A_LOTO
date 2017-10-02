@@ -1,13 +1,16 @@
 <?php 
 //$a = 5;
 
-$keyJSON = file_get_contents('http://62.28.241.149/~pmoreira/KEYSERVER/KeyServerJSON.php');
+//$keyJSON = file_get_contents('http://62.28.241.149/~pmoreira/KEYSERVER/KeyServerJSON.php');
+
+
+$keyJSON = file_get_contents('http://localhost/SIR1718/LOTO_EI_A/KeyServerJSON.php');
 
 $keyPHP = json_decode($keyJSON);
 
-var_dump($keyJSON);
-echo("<br/>");
-var_dump($keyPHP);
+//var_dump($keyJSON);
+//echo("<br/>");
+//var_dump($keyPHP);
 
 ?>
 <!DOCTYPE html>
