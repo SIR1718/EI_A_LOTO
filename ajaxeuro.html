@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Gerador de Chaves</title>
+	<link rel="stylesheet" type="text/css" href="euro.css">
+
+</head>
+<body>
+<!-- head -->
+<div id="banner">
+<h1> Chaves do Euro Milhões </h1>
+</div>
+<!--control buttons -->
+<div id="control">
+	<button id="bgen">Nova Chave </button>
+	<button id="bclear">Limpar </button>
+</div>
+
+<!-- the keys -->
+<div id="content">
+	
+</div>
+
+<!--footer info -->
+<div id="footer">
+	&lt; &copy; Pedro Moreira ESTG-IPVC&gt;
+</div>
+
+</body>
+	<script>
+		
+		fakeKey = "Isto é uma Chave";
+
+		buttonGen = document.getElementById("bgen");
+		buttonClear = document.getElementById("bclear");
+
+		divContent = document.getElementById("content");
+
+		
+
+		buttonGen.addEventListener("click",showKey);
+		buttonClear.addEventListener("click",clearKeys);
+
+		
+		var url = "http://localhost/SIR1718/LOTO_EI_A/keyServerJSON.php";
+		// http://62.28.241.149/~pmoreira/KEYSERVER/KeyServerJSON.php
+
+		function showKey() {
+
+			newAJAXRequest = new XMLHttpRequest();
+
+			newAJAXRequest.open("GET",url);
+
+			newAJAXRequest.onreadystatechange = function () {
+				console.log(newAJAXRequest.readyState);
+				if (newAJAXRequest.readyState == 4 && 
+					newAJAXRequest.status == 200) {
+						console.log("terminado com sucesso");
+						console.log(newAJAXRequest.responseText);
+						var keyJS = JSON.parse(newAJAXRequest.responseText);
+						console.log(keyJS);
+						var divKey = document.createElement("div");
+						divKey.setAttribute("class","key");
+						var uln = document.createElement("ul");
+						for (i=0; i < keyJS.numbers.length; i++ ) {
+							nli = document.createElement("li");
+							nli.innerHTML = keyJS.numbers[i];
+							uln.appendChild(nli);
+						}
+						divKey.appendChild(uln);
+						divContent.appendChild(divKey);
+				};
+			}
+
+			newAJAXRequest.send();
+		}
+
+
+		function clearKeys() {
+			// create a new P element
+			divContent.innerHTML = "";
+		}
+		
+
+
+	</script>
+</html>

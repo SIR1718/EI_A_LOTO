@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Gerador de Chaves</title>
+	<link rel="stylesheet" type="text/css" href="euro.css">
+
+	<script>
+		function init() {
+			buttonGen = document.getElementById("bgen");
+			console.log(buttonGen);
+
+		}
+
+		function sayHello() {
+			console.log("Hello");
+		}
+
+
+	</script>
+</head>
+<body onload="init();">
+<!-- head -->
+<div id="banner">
+<h1> Chaves do Euro Milhões </h1>
+</div>
+<!--control buttons -->
+<div id="control">
+	<button id="bgen">Nova Chave </button>
+	<button id="bclear">Limpar </button>
+</div>
+
+<!-- the keys -->
+<div id="content">
+	
+</div>
+
+<!--footer info -->
+<div id="footer">
+	&lt; &copy; Pedro Moreira ESTG-IPVC&gt;
+</div>
+
+</body>
+	<script>
+
+		fakeKey = "Isto é uma Chave";
+
+
+		buttonGen = document.getElementById("bgen");
+		console.log(buttonGen);
+		buttonClear = document.getElementById("bclear");
+		
+		//buttonClear.onclick = sayHi;
+
+		buttonClear.addEventListener("click",sayHi);
+		buttonClear.addEventListener("click",sayHello);
+
+
+		function sayHi() {
+			console.log("Hi");
+		}
+
+	</script>
+</html>
