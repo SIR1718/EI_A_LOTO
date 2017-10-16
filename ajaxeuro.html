@@ -30,6 +30,7 @@
 </body>
 	<script>
 		
+		//
 		fakeKey = "Isto é uma Chave";
 
 		buttonGen = document.getElementById("bgen");
@@ -63,12 +64,23 @@
 						var divKey = document.createElement("div");
 						divKey.setAttribute("class","key");
 						var uln = document.createElement("ul");
+						uln.className="numbers";
 						for (i=0; i < keyJS.numbers.length; i++ ) {
 							nli = document.createElement("li");
 							nli.innerHTML = keyJS.numbers[i];
 							uln.appendChild(nli);
 						}
+
+						var uls = document.createElement("ul");
+						uls.className="stars";
+						for (i=0; i < keyJS.stars.length; i++ ) {
+							nli = document.createElement("li");
+							nli.innerHTML = keyJS.stars[i];
+							uls.appendChild(nli);
+						}
+
 						divKey.appendChild(uln);
+						divKey.appendChild(uls);
 						divContent.appendChild(divKey);
 				};
 			}
